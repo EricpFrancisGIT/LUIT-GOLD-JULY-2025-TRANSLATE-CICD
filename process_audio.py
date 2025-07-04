@@ -6,7 +6,7 @@ from pathlib import Path
 
 AWS_REGION = os.environ['AWS_REGION']
 S3_BUCKET = os.environ['S3_BUCKET']
-S3_PREFIX = os.environ.get('S3_PREFIX', 'beta/')
+S3_PREFIX = os.environ.get('S3_PREFIX', 'BETA/')
 DESTINATION_LANG = os.environ.get('DESTINATION_LANG', 'de')
 
 s3 = boto3.client('s3', region_name=AWS_REGION)
@@ -19,13 +19,13 @@ def upload_to_s3(local_path, s3_key):
 
 def transcribe_audio(file):
     job_name = f'job-{int(time.time())}'
-    s3-url: f's3://{S3_BUCKET}/{S3_PREFIX}audio_inputs/{file}'
+    s3_url = f's3://{S3_BUCKET}/{S3_PREFIX}audio_inputs/{file}'
 
     transcript_s3_key = f'{S3_PREFIX}transcripts/{job_name}.json'
 
     transcribe.start_transcription_job(
         TranscriptionJobName=job_name,
-        Mediata={'MediaFileUri': s3_url},
+        Media={'MediaFileUri': s3_url},
         MediaFormat='mp3',
         LanguageCode='en-US',
         OutputBucketName=S3_BUCKET,
@@ -99,4 +99,3 @@ def process_file(filepath):
 for file in Path("audio_inputs").glob("*.mp3"):
     process_file(file)
     print(f'Processed {file.name}')
-    
