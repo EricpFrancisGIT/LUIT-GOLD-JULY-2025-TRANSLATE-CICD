@@ -25,7 +25,7 @@ def transcribe_audio(file):
 
     transcribe.start_transcription_job(
         TranscriptionJobName=job_name,
-        Mediata={'MediaFileUri': s3_url},
+        Media={'MediaFileUri': s3_url},
         MediaFormat='mp3',
         LanguageCode='en-US',
         OutputBucketName=S3_BUCKET,
