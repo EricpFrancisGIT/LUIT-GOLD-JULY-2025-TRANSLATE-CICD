@@ -19,7 +19,7 @@ def upload_to_s3(local_path, s3_key):
 
 def transcribe_audio(file):
     job_name = f'job-{int(time.time())}'
-    s3-url: f's3://{S3_BUCKET}/{S3_PREFIX}audio_inputs/{file}'
+    s3_url = f's3://{S3_BUCKET}/{S3_PREFIX}audio_inputs/{file}'
 
     transcript_s3_key = f'{S3_PREFIX}transcripts/{job_name}.json'
 
