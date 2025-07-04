@@ -6,7 +6,7 @@ from pathlib import Path
 
 AWS_REGION = os.environ['AWS_REGION']
 S3_BUCKET = os.environ['S3_BUCKET']
-S3_PREFIX = os.environ.get('S3_PREFIX', 'beta/')
+S3_PREFIX = os.environ.get('S3_PREFIX', 'BETA/')
 DESTINATION_LANG = os.environ.get('DESTINATION_LANG', 'de')
 
 s3 = boto3.client('s3', region_name=AWS_REGION)
@@ -99,4 +99,3 @@ def process_file(filepath):
 for file in Path("audio_inputs").glob("*.mp3"):
     process_file(file)
     print(f'Processed {file.name}')
-    
