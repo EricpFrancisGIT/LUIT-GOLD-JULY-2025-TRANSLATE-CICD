@@ -82,7 +82,7 @@ def process_file(filepath):
     translated_text = translate_text(transcript_text, DESTINATION_LANG)
 
     transcript_path = f"/tmp/{filename}_transcript.txt"
-    translated_path = f"/tmp/{filename}__{DESTINATION_LANG}.txt"
+    translated_path = f"/tmp/{filename}_{DESTINATION_LANG}.txt"
     output_audio_path = f"audio_outputs/{filename}_{DESTINATION_LANG}.mp3"
 
     with open("tmp_transcript.txt", "w") as f:
