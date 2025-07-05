@@ -7,7 +7,7 @@ from pathlib import Path
 AWS_REGION = os.environ['AWS_REGION']
 S3_BUCKET = os.environ['S3_BUCKET']
 S3_PREFIX = os.environ.get('S3_PREFIX', 'BETA/')
-DESTINATION_LANG = os.environ.get('DESTINATION_LANG', 'fr')
+DESTINATION_LANG = os.environ.get('DESTINATION_LANG', 'ar')
 
 s3 = boto3.client('s3', region_name=AWS_REGION)
 transcribe = boto3.client('transcribe', region_name=AWS_REGION)
